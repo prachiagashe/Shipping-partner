@@ -7,11 +7,11 @@ export const Welcome = () => {
 
   return (
     <div className="w-full flex flex-col">
-      <div className="bg-[#FFB800] py-16 px-8 text-center border-b-[8px] border-white">
-        <h1 className="text-5xl font-black text-black tracking-tight mb-2">Become a UdrCrafts Shipping Partner®</h1>
+      <div className="bg-[#FFB800] py-10 sm:py-16 px-4 sm:px-8 text-center border-b-[8px] border-white">
+        <h1 className="text-3xl sm:text-5xl font-black text-black tracking-tight mb-2">Become a UdrCrafts Shipping Partner®</h1>
       </div>
       
-      <div className="px-12 py-16 text-center">
+      <div className="px-4 sm:px-12 py-10 sm:py-16 text-center">
         <h2 className="text-sm font-bold tracking-widest uppercase mb-4 text-black">Choose how you want to continue</h2>
         <p className="text-gray-600 max-w-2xl mx-auto mb-12">
           Join the UdrCrafts logistics network. Complete your registration, upload your required business documents, and start managing your shipments seamlessly through our partner portal.

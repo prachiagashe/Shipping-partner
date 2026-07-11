@@ -30,9 +30,9 @@ export const Login = () => {
         <form onSubmit={handleSubmit}>
           <Input 
             id="email" 
-            type="email" 
-            label="Email Address" 
-            placeholder="john@example.com" 
+            type="text" 
+            label="Email or Mobile Number" 
+            placeholder="john@example.com or 9876543210" 
             value={formData.email}
             onChange={handleChange}
             required 
