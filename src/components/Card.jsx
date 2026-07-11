@@ -1,9 +1,8 @@
 import React from 'react';
-import './components.css';
 
 export const Card = ({ children, className = '' }) => {
   return (
-    <div className={`card ${className}`}>
+    <div className={`bg-white rounded-2xl border border-gray-200 overflow-hidden flex flex-col ${className}`}>
       {children}
     </div>
   );

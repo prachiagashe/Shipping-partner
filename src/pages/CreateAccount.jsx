@@ -3,7 +3,6 @@ import { useNavigate, Link } from 'react-router-dom';
 import { Button } from '../components/Button';
 import { Input } from '../components/Input';
 import { Card } from '../components/Card';
-import './pages.css';
 
 export const CreateAccount = () => {
   const navigate = useNavigate();
@@ -19,7 +18,6 @@ export const CreateAccount = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if(formData.password === formData.confirmPassword) {
-      // Create account logic
       navigate('/login');
     } else {
       alert("Passwords do not match");
@@ -27,11 +25,11 @@ export const CreateAccount = () => {
   };
 
   return (
-    <div className="page-container form-container animate-fade-in">
-      <Card>
-        <div className="form-header">
-          <h2>Create Account</h2>
-          <p className="text-muted">Step 3 of 3: Secure your account</p>
+    <div className="max-w-xl mx-auto w-full p-8 animate-fade-in">
+      <Card className="p-8">
+        <div className="text-center mb-8">
+          <h2 className="text-3xl font-bold mb-2">Create Account</h2>
+          <p className="text-gray-500 font-medium">Step 3 of 3: Secure your account</p>
         </div>
         <form onSubmit={handleSubmit}>
           <Input 
@@ -53,12 +51,12 @@ export const CreateAccount = () => {
             required 
           />
           
-          <Button type="submit" className="w-full mt-xl" style={{ width: '100%', marginTop: '2rem' }}>
+          <Button type="submit" className="w-full mt-8">
             Complete Setup
           </Button>
           
-          <div className="auth-link">
-            Already have an account? <Link to="/login">Login here</Link>
+          <div className="mt-6 text-center text-sm text-gray-500 font-medium">
+            Already have an account? <Link to="/login" className="text-black hover:underline">Login here</Link>
           </div>
         </form>
       </Card>

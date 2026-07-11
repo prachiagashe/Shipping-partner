@@ -3,7 +3,6 @@ import { useNavigate } from 'react-router-dom';
 import { Button } from '../components/Button';
 import { Input } from '../components/Input';
 import { Card } from '../components/Card';
-import './pages.css';
 
 export const Registration = () => {
   const navigate = useNavigate();
@@ -20,16 +19,15 @@ export const Registration = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // In a real app, save data here
     navigate('/upload-documents');
   };
 
   return (
-    <div className="page-container form-container animate-fade-in">
-      <Card>
-        <div className="form-header">
-          <h2>Partner Registration</h2>
-          <p className="text-muted">Step 1 of 3: Basic Information</p>
+    <div className="max-w-xl mx-auto w-full p-8 animate-fade-in">
+      <Card className="p-8">
+        <div className="text-center mb-8">
+          <h2 className="text-3xl font-bold mb-2">Partner Registration</h2>
+          <p className="text-gray-500 font-medium">Step 1 of 3: Basic Information</p>
         </div>
         <form onSubmit={handleSubmit}>
           <Input 
@@ -67,7 +65,7 @@ export const Registration = () => {
             required 
           />
           
-          <Button type="submit" className="w-full mt-xl" style={{ width: '100%', marginTop: '2rem' }}>
+          <Button type="submit" className="w-full mt-8">
             Continue to Documents
           </Button>
         </form>

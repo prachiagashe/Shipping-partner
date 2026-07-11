@@ -3,7 +3,6 @@ import { useNavigate, Link } from 'react-router-dom';
 import { Button } from '../components/Button';
 import { Input } from '../components/Input';
 import { Card } from '../components/Card';
-import './pages.css';
 
 export const Login = () => {
   const navigate = useNavigate();
@@ -18,16 +17,15 @@ export const Login = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // In a real app, validate credentials
     navigate('/dashboard');
   };
 
   return (
-    <div className="page-container form-container animate-fade-in">
-      <Card>
-        <div className="form-header">
-          <h2>Welcome Back</h2>
-          <p className="text-muted">Login to your partner dashboard</p>
+    <div className="max-w-xl mx-auto w-full p-8 animate-fade-in">
+      <Card className="p-8">
+        <div className="text-center mb-8">
+          <h2 className="text-3xl font-bold mb-2">Welcome Back</h2>
+          <p className="text-gray-500 font-medium">Login to your partner dashboard</p>
         </div>
         <form onSubmit={handleSubmit}>
           <Input 
@@ -49,12 +47,12 @@ export const Login = () => {
             required 
           />
           
-          <Button type="submit" className="w-full mt-xl" style={{ width: '100%', marginTop: '2rem' }}>
+          <Button type="submit" className="w-full mt-8">
             Login
           </Button>
           
-          <div className="auth-link">
-            Don't have an account? <Link to="/become-partner">Become a partner</Link>
+          <div className="mt-6 text-center text-sm text-gray-500 font-medium">
+            Don't have an account? <Link to="/become-partner" className="text-black hover:underline">Become a partner</Link>
           </div>
         </form>
       </Card>
