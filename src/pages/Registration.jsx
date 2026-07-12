@@ -51,7 +51,7 @@ export const Registration = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (validate()) {
-      navigate('/upload-documents');
+      navigate('/upload-documents', { state: { step1Data: formData } });
     }
   };
 

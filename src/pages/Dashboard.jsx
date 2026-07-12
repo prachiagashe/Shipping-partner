@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Card } from '../components/Card';
 import { Button } from '../components/Button';
@@ -6,6 +6,12 @@ import { Package, Truck, Clock, CheckCircle } from 'lucide-react';
 
 export const Dashboard = () => {
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!localStorage.getItem('token')) {
+      navigate('/login');
+    }
+  }, [navigate]);
 
   return (
     <div className="max-w-5xl mx-auto w-full p-8 animate-fade-in">

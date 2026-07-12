@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { Button } from '../components/Button';
 import { Input } from '../components/Input';
 import { Card } from '../components/Card';
@@ -31,6 +31,9 @@ const FileUpload = ({ label, id, file, onChange, required }) => (
 
 export const UploadDocuments = () => {
   const navigate = useNavigate();
+  const location = useLocation();
+  const step1Data = location.state?.step1Data;
+
   const [formData, setFormData] = useState({
     aadhaarNumber: '',
     aadhaarFile: null,
@@ -96,7 +99,12 @@ export const UploadDocuments = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (validate()) {
-      navigate('/success');
+      if (!step1Data) {
+        alert("Registration session expired. Please start over.");
+        navigate('/registration');
+        return;
+      }
+      navigate('/create-account', { state: { step1Data, step2Data: formData } });
     }
   };
 
