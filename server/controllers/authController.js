@@ -93,10 +93,19 @@ const login = async (req, res) => {
             { expiresIn: '1d' }
         );
 
+        // Fetch full_name from shipping_partner_details
+        let full_name = '';
+        if (user.role === 'partner') {
+            const [partnerDetails] = await pool.query('SELECT full_name FROM shipping_partner_details WHERE user_id = ?', [user.id]);
+            if (partnerDetails.length > 0) {
+                full_name = partnerDetails[0].full_name;
+            }
+        }
+
         res.status(200).json({ 
             message: 'Login successful', 
             token,
-            user: { id: user.id, email: user.email, role: user.role }
+            user: { id: user.id, email: user.email, role: user.role, full_name }
         });
 
     } catch (error) {

@@ -14,10 +14,10 @@ import { Profile } from './pages/Profile';
 function App() {
   return (
     <Router>
-      <div className="min-h-screen bg-[#F3F4F6] p-4 sm:p-6 flex flex-col items-center font-sans overflow-y-auto">
-        <div className="w-full max-w-4xl bg-white rounded-xl sm:rounded-2xl shadow-xl overflow-hidden flex flex-col mt-4 mb-10">
+      <div className="min-h-screen bg-[#F3F4F6] flex flex-col font-sans overflow-y-auto">
+        <div className="w-full bg-white flex flex-col min-h-screen shadow-sm">
           <Navbar />
-          <main className="flex-1">
+          <main className="flex-1 bg-gray-50/50">
             <Routes>
               <Route path="/" element={<Welcome />} />
               <Route path="/become-partner" element={<BecomePartner />} />

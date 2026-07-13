@@ -1,5 +1,5 @@
 const express = require('express');
-const { uploadDocuments, getProfile } = require('../controllers/partnerController');
+const { uploadDocuments, getProfile, updateProfile } = require('../controllers/partnerController');
 const { verifyToken } = require('../middlewares/authMiddleware');
 const upload = require('../middlewares/uploadMiddleware');
 
@@ -14,5 +14,6 @@ router.post('/upload/:partner_id', upload.fields([
 
 // Profile is protected route
 router.get('/profile', verifyToken, getProfile);
+router.put('/profile', verifyToken, updateProfile);
 
 module.exports = router;

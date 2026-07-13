@@ -55,4 +55,38 @@ const getProfile = async (req, res) => {
     }
 };
 
-module.exports = { uploadDocuments, getProfile };
+const updateProfile = async (req, res) => {
+    const userId = req.user.id;
+    const {
+        address, city, state, pincode,
+        bank_name, account_number, ifsc_code
+    } = req.body;
+
+    try {
+        const [result] = await pool.query(
+            `UPDATE shipping_partner_details 
+             SET address = ?, city = ?, state = ?, pincode = ?, 
+                 bank_name = ?, account_number = ?, ifsc_code = ?
+             WHERE user_id = ?`,
+            [address, city, state, pincode, bank_name, account_number, ifsc_code, userId]
+        );
+
+        if (result.affectedRows === 0) {
+            return res.status(404).json({ message: 'Shipping partner profile not found' });
+        }
+
+        // Fetch updated profile
+        const [partners] = await pool.query('SELECT * FROM shipping_partner_details WHERE user_id = ?', [userId]);
+        
+        res.status(200).json({
+            message: 'Profile updated successfully',
+            partner: partners[0]
+        });
+
+    } catch (error) {
+        console.error('Update profile error:', error);
+        res.status(500).json({ message: 'Internal server error' });
+    }
+};
+
+module.exports = { uploadDocuments, getProfile, updateProfile };

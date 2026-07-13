@@ -33,6 +33,7 @@ export const Login = () => {
       if (!res.ok) throw new Error(data.message || 'Login failed');
 
       localStorage.setItem('token', data.token);
+      localStorage.setItem('user', JSON.stringify(data.user));
       navigate('/dashboard');
     } catch (err) {
       setError(err.message);
