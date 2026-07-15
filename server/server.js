@@ -6,6 +6,7 @@ const path = require('path');
 const authRoutes = require('./routes/authRoutes');
 const partnerRoutes = require('./routes/partnerRoutes');
 
+
 const app = express();
 const PORT = process.env.PORT || 5000;
 

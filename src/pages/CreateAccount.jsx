@@ -27,7 +27,7 @@ export const CreateAccount = () => {
       return navigate('/registration');
     }
 
-    if(formData.password !== formData.confirmPassword) {
+    if (formData.password !== formData.confirmPassword) {
       return alert("Passwords do not match");
     }
 
@@ -57,6 +57,8 @@ export const CreateAccount = () => {
           ifsc_code: step2Data.ifscCode
         })
       });
+
+
 
       const registerData = await registerRes.json();
       if (!registerRes.ok) throw new Error(registerData.message || 'Registration failed');
@@ -92,29 +94,29 @@ export const CreateAccount = () => {
           {error && <p className="text-red-500 mt-2">{error}</p>}
         </div>
         <form onSubmit={handleSubmit}>
-          <Input 
-            id="password" 
-            type="password" 
-            label="Password" 
-            placeholder="Enter a secure password" 
+          <Input
+            id="password"
+            type="password"
+            label="Password"
+            placeholder="Enter a secure password"
             value={formData.password}
             onChange={handleChange}
-            required 
+            required
           />
-          <Input 
-            id="confirmPassword" 
-            type="password" 
-            label="Confirm Password" 
-            placeholder="Re-enter your password" 
+          <Input
+            id="confirmPassword"
+            type="password"
+            label="Confirm Password"
+            placeholder="Re-enter your password"
             value={formData.confirmPassword}
             onChange={handleChange}
-            required 
+            required
           />
-          
+
           <Button type="submit" className="w-full mt-8" disabled={loading}>
             {loading ? 'Creating Account...' : 'Complete Setup'}
           </Button>
-          
+
           <div className="mt-6 text-center text-sm text-gray-500 font-medium">
             Already have an account? <Link to="/login" className="text-black hover:underline">Login here</Link>
           </div>
