@@ -33,6 +33,8 @@ const DetailRow = ({ label, value, name, isEditing, isEditable, onChange }) => (
   </div>
 );
 
+
+
 const ViewDocumentBtn = ({ label, url }) => (
   <button 
     onClick={() => window.open(`http://localhost:5000/${url}`, '_blank')}

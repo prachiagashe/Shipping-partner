@@ -32,6 +32,8 @@ export const BecomePartner = () => {
         </Card>
       </div>
 
+
+
       <div className="text-center mt-16">
         <Button onClick={() => navigate('/registration')} size="large">
           Start Application

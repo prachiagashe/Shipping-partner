@@ -16,6 +16,8 @@ export const Registration = () => {
     pincode: '',
   });
 
+  
+
   const [errors, setErrors] = useState({});
 
   const handleChange = (e) => {
