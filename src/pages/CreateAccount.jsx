@@ -103,6 +103,8 @@ export const CreateAccount = () => {
             onChange={handleChange}
             required
           />
+
+
           <Input
             id="confirmPassword"
             type="password"

@@ -13,6 +13,7 @@ export const Dashboard = () => {
     revenue: 45200
   });
 
+
   useEffect(() => {
     // Basic auth check
     if (!localStorage.getItem('token')) {
@@ -44,7 +45,7 @@ export const Dashboard = () => {
             <p className="text-sm font-medium text-gray-500">Total Shipments</p>
           </div>
         </Card>
-        
+
         <Card className="p-5 sm:p-6 flex flex-col gap-4 hover:shadow-lg transition-all hover:-translate-y-1">
           <div className="flex justify-between items-start">
             <div className="p-3 bg-blue-500/10 rounded-xl">
@@ -74,7 +75,7 @@ export const Dashboard = () => {
             <p className="text-sm font-medium text-gray-500">On-Time Rate</p>
           </div>
         </Card>
-        
+
         <Card className="p-5 sm:p-6 flex flex-col gap-4 hover:shadow-lg transition-all hover:-translate-y-1">
           <div className="flex justify-between items-start">
             <div className="p-3 bg-purple-500/10 rounded-xl">
@@ -126,9 +127,9 @@ export const Dashboard = () => {
                   </td>
                   <td className="p-4">
                     <span className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-semibold
-                      ${item.type === 'success' ? 'bg-green-50 text-green-700 border border-green-200' : 
-                        item.type === 'warning' ? 'bg-yellow-50 text-yellow-700 border border-yellow-200' : 
-                        'bg-red-50 text-red-700 border border-red-200'}`}>
+                      ${item.type === 'success' ? 'bg-green-50 text-green-700 border border-green-200' :
+                        item.type === 'warning' ? 'bg-yellow-50 text-yellow-700 border border-yellow-200' :
+                          'bg-red-50 text-red-700 border border-red-200'}`}>
                       {item.type === 'success' && <CheckCircle size={12} />}
                       {item.type === 'warning' && <Clock size={12} />}
                       {item.type === 'error' && <AlertCircle size={12} />}
